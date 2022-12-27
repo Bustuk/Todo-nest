@@ -10,5 +10,5 @@ CREATE TABLE todos (
   description TEXT,
   PRIMARY KEY (id)
 );
-INSERT INTO todos (title, completed, description) VALUES ('TODO #1', true, 'TODO #1 description');
-INSERT INTO todos (title, completed, description) VALUES ('TODO #2', false, 'TODO #2 description');
+INSERT INTO todo (title, completed, description) VALUES ('TODO #1', true, 'TODO #1 description');
+INSERT INTO todo (title, completed, description) VALUES ('TODO #2', false, 'TODO #2 description');

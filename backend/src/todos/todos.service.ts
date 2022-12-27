@@ -10,8 +10,13 @@ export class TodosService {
     @InjectRepository(Todo)
     private readonly todoRepository: Repository<Todo>,
   ) {}
+
   create(createTodoDto: CreateTodoDto) {
-    return this.todoRepository.create(createTodoDto);
+    const created = this.todoRepository.create({
+      description: '',
+      ...createTodoDto,
+    });
+    return this.todoRepository.save(created);
   }
 
   findAll() {

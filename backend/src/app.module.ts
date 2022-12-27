@@ -9,7 +9,7 @@ import { Todo } from './todos/entities/todo.entity';
     TodosModule,
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: 'localhost', //db',
+      host: 'db',
       port: 3306,
       username: 'root',
       password: 'example',
