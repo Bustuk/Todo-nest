@@ -1,8 +1,8 @@
-version: "3.9"
+version: "3"
 services:
   frontend:
     container_name: vue-frontend-img
-    image: vue-frontentd   #rejestr/nazwa_uzytkownika/nazwa_obrazu[:tag]
+    image: vue-frontentd
     build:
       context: ./frontend/
       dockerfile: Dockerfile
@@ -14,7 +14,7 @@ services:
       - "1337:80"
   backend:
     container_name: nest-backend-img
-    image: nest-backend   #rejestr/nazwa_uzytkownika/nazwa_obrazu[:tag]
+    image: nest-backend
     build:
       context: ./backend/
       dockerfile: Dockerfile
@@ -42,10 +42,9 @@ services:
       MYSQL_ROOT_PASSWORD: example
       MYSQL_DATABASE: db
     ports:
-      # <Port exposed> : < MySQL Port running inside container>
       - '3306:3306'
-    expose:
-      - '3306'
+    # expose:
+    #   - '3306'
     healthcheck:
       test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
       timeout: 20s

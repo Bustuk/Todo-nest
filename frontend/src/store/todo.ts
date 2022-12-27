@@ -26,15 +26,8 @@ export const useTodoStore = defineStore("todo", () => {
   }
 
   async function addTodo(title: string) {
-    connector.post("", { title, completed: false });
-    todos.value = [
-      ...todos.value,
-      {
-        id: 123,
-        completed: false,
-        title,
-      },
-    ];
+    await connector.post("", { title, completed: false });
+    await refreshTodos();
   }
 
   async function removeTodo(id: number) {
