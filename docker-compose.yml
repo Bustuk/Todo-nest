@@ -1,7 +1,7 @@
 version: "3"
 services:
   frontend:
-    container_name: vue-frontend-img
+    container_name: vue-frontend-container
     image: vue-frontentd
     build:
       context: ./frontend/
@@ -12,8 +12,10 @@ services:
     #   - ./config/env_var.env
     ports:
       - "1337:80"
+    depends_on:
+      - backend
   backend:
-    container_name: nest-backend-img
+    container_name: nest-backend-container
     image: nest-backend
     build:
       context: ./backend/
@@ -25,7 +27,7 @@ services:
     ports:
       - "3000:3000"
     depends_on:
-      - db
+      - mysql
     # redis:
     #   condition: service_completed_successfully
     # volumes:
@@ -34,7 +36,7 @@ services:
     #     target: /data
     #     volume:
     #       nocopy: true
-  db:
+  mysql:
     image: mysql:8.0
     command: --default-authentication-plugin=mysql_native_password
     restart: always
@@ -45,10 +47,6 @@ services:
       - '3306:3306'
     # expose:
     #   - '3306'
-    healthcheck:
-      test: ["CMD", "mysqladmin" ,"ping", "-h", "localhost"]
-      timeout: 20s
-      retries: 10
   # redis:
   #   image: "redis:alpine"
 # volumes:

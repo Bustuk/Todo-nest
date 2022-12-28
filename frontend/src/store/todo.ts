@@ -3,7 +3,7 @@ import { defineStore } from "pinia";
 import axios from "axios";
 
 const connector = axios.create({
-  baseURL: "http://localhost:3000/todos",
+  baseURL: "todos",
 });
 
 type Todo = {
