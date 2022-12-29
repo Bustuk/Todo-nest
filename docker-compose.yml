@@ -2,7 +2,7 @@ version: "3"
 services:
   frontend:
     container_name: vue-frontend-container
-    image: vue-frontentd
+    image: bustuk/vue-todo-frontend
     build:
       context: ./frontend/
       dockerfile: Dockerfile
@@ -14,7 +14,7 @@ services:
       - backend
   backend:
     container_name: nest-backend-container
-    image: nest-backend
+    image: bustuk/nest-todo-backend
     build:
       context: ./backend/
       dockerfile: Dockerfile

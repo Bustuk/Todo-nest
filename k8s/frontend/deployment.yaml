@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: bustuk/vue-frontentd
+        image: bustuk/vue-todo-frontend
         ports:
         - containerPort: 80
         resources: {}

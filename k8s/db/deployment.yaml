@@ -16,12 +16,11 @@ spec:
       containers:
       - image: mysql:8.0
         name: mysql
-        env:
-          # Use secret in real usage
-        - name: MYSQL_ROOT_PASSWORD
-          value: example
-        - name: MYSQL_DATABASE
-          value: db
+        envFrom:
+        - configMapRef:
+            name: backend-cm
+        - secretRef:
+            name: db-secrets
         ports:
         - containerPort: 3306
           name: example

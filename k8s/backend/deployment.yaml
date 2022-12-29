@@ -14,10 +14,12 @@ spec:
     spec:
       containers:
       - name: backend
-        image: bustuk/nest-backend
+        image: bustuk/nest-todo-backend
         ports:
         - containerPort: 3000
         resources: {}
-        env:
-        - name: DB_HOST
-          value: "mysql"
+        envFrom:
+        - configMapRef:
+            name: backend-cm
+        - secretRef:
+            name: db-secrets
