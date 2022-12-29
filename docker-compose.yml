@@ -8,8 +8,6 @@ services:
       dockerfile: Dockerfile
       args:
         - BUILD_VERSION=2.0
-    # env_file:
-    #   - ./config/env_var.env
     ports:
       - "1337:80"
     depends_on:
@@ -22,20 +20,12 @@ services:
       dockerfile: Dockerfile
       args:
         - BUILD_VERSION=2.0
-    # env_file:
-    #   - ./config/env_var.env
+    environment:
+      DB_HOST: mysql
     ports:
       - "3000:3000"
     depends_on:
       - mysql
-    # redis:
-    #   condition: service_completed_successfully
-    # volumes:
-    #   - type: volume
-    #     source: mydata
-    #     target: /data
-    #     volume:
-    #       nocopy: true
   mysql:
     image: mysql:8.0
     command: --default-authentication-plugin=mysql_native_password
@@ -45,9 +35,3 @@ services:
       MYSQL_DATABASE: db
     ports:
       - '3306:3306'
-    # expose:
-    #   - '3306'
-  # redis:
-  #   image: "redis:alpine"
-# volumes:
-#   mydata:
