@@ -21,5 +21,10 @@ function addTodo() {
 </script>
 
 <style scoped>
-
+form {
+  margin-top: 30px;
+  width: 252px;
+  display: flex;
+  justify-content: space-between;
+}
 </style>

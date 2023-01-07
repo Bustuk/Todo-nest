@@ -10,6 +10,7 @@ const { addTodo, toggleTodo, removeTodo } = store;
 
 <template>
   <main>
+    Todo
     <todo-input @todo-added="addTodo" />
     <ul>
       <todo-item
@@ -23,4 +24,16 @@ const { addTodo, toggleTodo, removeTodo } = store;
   </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+ul {
+  padding: 0px;
+}
+</style>
